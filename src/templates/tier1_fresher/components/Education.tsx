@@ -6,8 +6,8 @@ export const Education = ({ education }: { education: IEducation[] }) => {
     <>
       {education.map((item: IEducation, index: number) => {
         return (
-          <div key={item.id} className="flex mb-3 justify-between items-center">
-            <div className="text-sm">
+          <div key={item.id} className="flex mb-13 justify-between items-center">
+            <div className="text-sm mt-[-12px]">
               <strong>
                 {item.studyType} | {item.area}
               </strong>

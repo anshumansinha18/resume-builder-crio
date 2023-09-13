@@ -16,6 +16,7 @@ import styled from '@emotion/styled';
 import { Section } from '../tier1_fresher/components/Section';
 import Skill from './components/Skill';
 import Experience from './components/Experience';
+import Project from './components/Project';
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -45,6 +46,7 @@ const LeftSection = styled.div`
 
 export default function ProfessionalTemplate() {
   const resumeData = useContext(StateContext);
+  console.log(resumeData.projects);
   const skills = resumeData.skills;
   // const involvements = resumeData.activities.involvements;
   // const achievements = resumeData.activities.achievements;
@@ -66,6 +68,10 @@ export default function ProfessionalTemplate() {
 
         <Section title="Experience" titleClassname="text-lg">
           <Experience work={resumeData.work} />
+        </Section>
+
+        <Section title="Projects" titleClassname="text-lg">
+          <Project projects={resumeData.projects} />
         </Section>
 
         <Section title="Education" titleClassname="text-lg">

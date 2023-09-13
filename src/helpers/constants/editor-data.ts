@@ -5,6 +5,7 @@ import ExperienceLayout from 'src/modules/builder/editor/modules/experience/Expe
 import ActivitiesLayout from 'src/modules/builder/editor/modules/activities/ActivitiesLayout';
 import VolunteeringLayout from 'src/modules/builder/editor/modules/volunteering/VolunteeringLayout';
 import AwardsLayout from 'src/modules/builder/editor/modules/awards/AwardsLayout';
+import ProjectsLayout from 'src/modules/builder/editor/modules/projects/ProjectsLayout';
 
 export const headers: {
   [key: string]: { title: string; component: () => JSX.Element };
@@ -18,5 +19,5 @@ export const headers: {
   experience: { title: 'Experience', component: ExperienceLayout },
   activities: { title: 'Activities', component: ActivitiesLayout },
   volunteering: { title: 'Volunteering', component: VolunteeringLayout },
-  awards: { title: 'Awards', component: AwardsLayout },
+  projects: { title: 'Projects', component: ProjectsLayout },
 };

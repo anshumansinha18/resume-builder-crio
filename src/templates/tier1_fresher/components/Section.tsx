@@ -7,7 +7,7 @@ import styles from './about.module.css';
 
 const SectionHolder = styled.div`
   border-radius: 5px;
-  padding: 18px 0px 10px 6px;
+  padding: 9px 0px 10px 6px;
 
   .header {
     position: relative;

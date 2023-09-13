@@ -17,5 +17,9 @@ export const HTMLRenderer = ({ htmlString }: { htmlString: string }) => {
       },
     });
   }, [htmlString]);
-  return <div className={`${styles.richtextRuntimeWrapper} text-sm`}>{parsedElement}</div>;
+  return (
+    <div className={`${styles.richtextRuntimeWrapper} text-[13px]`} style={{ padding: '5px' }}>
+      {parsedElement}
+    </div>
+  );
 };

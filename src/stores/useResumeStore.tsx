@@ -15,6 +15,7 @@ import { useBasicDetails } from './basic';
 import { useEducations } from './education';
 import { useExperiences } from './experience';
 import { useVoluteeringStore } from './volunteering';
+import { useProjects } from './projects';
 
 export const useResumeStore = () => {
   return {
@@ -34,6 +35,7 @@ export const useResumeStore = () => {
       tools: useTools((state) => state.get()),
     },
     activities: useActivity((state) => state.get()),
+    projects: useProjects((state) => state.projects),
   };
 };
 
@@ -50,6 +52,7 @@ export const resetResumeStore = () => {
   usePractices.getState().reset(ResumeData.skills.practices);
   useTools.getState().reset(ResumeData.skills.tools);
   useExperiences.getState().reset(ResumeData.work);
+  useProjects.getState().reset(ResumeData.projects);
   useEducations.getState().reset(ResumeData.education);
   useVoluteeringStore.getState().reset(ResumeData.volunteer);
   useAwards.getState().reset(ResumeData.awards);
