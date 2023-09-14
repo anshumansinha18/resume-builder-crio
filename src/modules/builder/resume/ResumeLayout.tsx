@@ -22,7 +22,7 @@ export const ResumeLayout = () => {
 
   useEffect(() => {
     const selectedTemplateId =
-      localStorage.getItem('selectedTemplateId') || AVAILABLE_TEMPLATES['modern'].id;
+      localStorage.getItem('selectedTemplateId') || AVAILABLE_TEMPLATES['tier1_fresher_nwg'].id;
     useTemplates.getState().setTemplate(AVAILABLE_TEMPLATES[selectedTemplateId]);
   }, []);
 

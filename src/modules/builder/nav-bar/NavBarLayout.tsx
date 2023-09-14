@@ -64,7 +64,6 @@ const NavBarLayout = () => {
     });
   }, []);
 
-
   //importing the json
   const handleFileChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     const fileObj = event.target.files && event.target.files[0];
@@ -122,15 +121,12 @@ const NavBarLayout = () => {
 
   return (
     <nav className="h-14 w-full bg-resume-800 relative flex py-2.5 pl-5 pr-4 items-center shadow-level-8dp z-20 print:hidden">
-      <Link href="/">
-        <Image src={'/icons/resume-icon.png'} alt="logo" height="36" width="36" />
-      </Link>
+      {/* <Link href="/" className="text-white text-xl">
+        Home
+      </Link> */}
       <div className="flex-auto flex justify-between items-center ml-5">
         <NavBarMenu>
-          <NavMenuItem
-            caption={`Templates (${TOTAL_TEMPLATES_AVAILABLE})`}
-            popoverChildren={<TemplateSelect />}
-          />
+          <NavMenuItem caption={`Choose Templates`} popoverChildren={<TemplateSelect />} />
           <NavMenuItem caption="Colours" popoverChildren={<ThemeSelect />} />
         </NavBarMenu>
         <NavBarActions>
