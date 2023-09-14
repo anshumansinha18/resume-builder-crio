@@ -9,7 +9,7 @@ const SectionHolder = styled.div`
 
 function SkillCategory({ title, skills }: { title: string; skills: ISkillItem[] }) {
   return (
-    <div className="text-[13px]">
+    <div className="text-[14px]">
       <strong>{title}: </strong>
       {skills.map((item, i) => (i !== skills.length - 1 ? `${item.name}, ` : `${item.name}`))}
     </div>

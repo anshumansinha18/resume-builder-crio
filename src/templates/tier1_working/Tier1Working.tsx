@@ -71,17 +71,17 @@ export default function ProfessionalTemplate() {
           <Education education={resumeData.education} />
         </Section>
 
-        {/* <Section title="Experience" titleClassname="text-lg">
+        <Section title="Experience" titleClassname="text-lg">
           <Experience work={resumeData.work} />
-        </Section> */}
+        </Section>
 
         <Section title="Projects" titleClassname="text-lg">
           <Project projects={resumeData.projects} />
         </Section>
 
-        <Section title="Clubs & Activities" titleClassname="text-lg">
+        {/* <Section title="Clubs & Activities" titleClassname="text-lg">
           <Activities activities={involvements} />
-        </Section>
+        </Section> */}
 
         <Section title="Achievements" titleClassname="text-lg">
           <Activities activities={achievements} />

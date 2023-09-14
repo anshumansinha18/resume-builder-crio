@@ -39,12 +39,58 @@ export const AVAILABLE_TEMPLATES: ITemplate = {
   },
   tier1_fresher_nwg: {
     id: 'tier1_fresher_nwg',
-    name: 'Tier-1-Fresher Resume',
+    name: 'Tier-1 + Fresher',
     thumbnail: '/templates/tier1_fresher.jpg',
     component: dynamic(() => import('src/templates/tier1_fresher/Tier1Fresher'), {
       ssr: false,
     }),
-  }
+  },
+  tier1_working: {
+    id: 'tier1_working',
+    name: 'Tier-1 + Working Professional',
+    thumbnail: '/templates/tier1_fresher.jpg',
+    component: dynamic(() => import('src/templates//tier1_working/Tier1Working'), {
+      ssr: false,
+    }),
+  },
+  tier1_career_transition: {
+    id: 'tier1_career_transition',
+    name: 'Tier-1 + Career Transition',
+    thumbnail: '/templates/tier1_fresher.jpg',
+    component: dynamic(
+      () => import('src/templates/tier1_career_transition/Tier1CareerTransition'),
+      {
+        ssr: false,
+      }
+    ),
+  },
+  others_fresher_nwg: {
+    id: 'others_fresher_nwg',
+    name: 'Others + Fresher/NWG',
+    thumbnail: '/templates/tier1_fresher.jpg',
+    component: dynamic(() => import('src/templates/others_fresher/OthersFresher'), {
+      ssr: false,
+    }),
+  },
+  others_working: {
+    id: 'others_working',
+    name: 'Others + Working Professional',
+    thumbnail: '/templates/tier1_fresher.jpg',
+    component: dynamic(() => import('src/templates/others_working/OthersWorking'), {
+      ssr: false,
+    }),
+  },
+  others_career_transition: {
+    id: 'others_career_transition',
+    name: 'Others + Career Transition',
+    thumbnail: '/templates/tier1_fresher.jpg',
+    component: dynamic(
+      () => import('src/templates/others_career_transition/OthersCareerTransition'),
+      {
+        ssr: false,
+      }
+    ),
+  },
 };
 
 export const CUSTOM_THEME_COLOR: IThemeColor = {

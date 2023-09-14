@@ -1,16 +1,17 @@
 import Color from 'color';
 import { IProfiles } from 'src/stores/basic.interface';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { socialIcons } from 'src/helpers/icons';
 import styled from '@emotion/styled';
-import styles from './about.module.css';
 
 const SectionHolder = styled.div`
   border-radius: 5px;
-  padding: 9px 0px 10px 6px;
+  padding: 18px 0px 10px 6px;
+  position: relative;
 
   .header {
-    position: relative;
+    position: absolute;
+    top: 0;
     transform: translate(0, -50%);
     background: white;
     padding: 0 0px;
@@ -24,18 +25,6 @@ const SectionHolder = styled.div`
     right: 10px;
     transform: translate(0, -50%);
     color: ${(props) => props.theme.titleColor};
-  }
-
-  .section-heading {
-    color: ${(props) => props.theme.titleColor};
-  }
-
-  .under-line {
-    line-height: 0 !important;
-    position: absolute;
-    height: 0.5px;
-    bottom: 3px;
-    background-color: ${(props) => props.theme.fontColor};
   }
 `;
 
@@ -64,7 +53,7 @@ function SocialIcons({ profiles }: { profiles: IProfiles[] }) {
   );
 }
 
-export function Section({
+export function Heading({
   title,
   children,
   titleClassname,
@@ -75,43 +64,18 @@ export function Section({
   titleClassname?: string;
   profiles?: IProfiles[];
 }) {
-  const spanRef = useRef<HTMLSpanElement | null>(null);
-  const headerRef = useRef<HTMLDivElement | null>(null);
-  const [spanWidth, setSpanWidth] = useState<number>(0);
-  const [headerWidth, setHeaderWidth] = useState<number>(0);
-
-  const calculateWidth = (): void => {
-    if (spanRef.current) {
-      const width = spanRef.current.offsetWidth;
-      setSpanWidth(width);
-    }
-    if (headerRef.current) {
-      console.log(headerRef.current.offsetWidth);
-      const width = headerRef.current.offsetWidth;
-      setHeaderWidth(width);
-    }
-  };
-  useEffect(() => {
-    calculateWidth();
-  }, []);
   return (
     <SectionHolder>
       <div
-        ref={headerRef}
-        className="header flex justify-start items-center gap-1 w-full"
+        className="header flex justify-center items-center gap-1 max-w-[100%] w-full"
         title={title}
       >
         <span
-          ref={spanRef}
           className={`${
             titleClassname ? titleClassname : ''
-          } whitespace-nowrap overflow-hidden overflow-ellipsis section-heading`}
+          } whitespace-nowrap overflow-hidden overflow-ellipsis`}
         >
           {title}
-          <span
-            className="under-line"
-            style={{ width: `calc(${headerWidth}px - ${spanWidth}px)` }}
-          ></span>
         </span>
       </div>
 

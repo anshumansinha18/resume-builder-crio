@@ -31,9 +31,8 @@ const SectionHolder = styled.div`
   }
 
   .under-line {
-    line-height: 0 !important;
     position: absolute;
-    height: 0.5px;
+    height: 1px;
     bottom: 3px;
     background-color: ${(props) => props.theme.fontColor};
   }
@@ -98,7 +97,7 @@ export function Section({
     <SectionHolder>
       <div
         ref={headerRef}
-        className="header flex justify-start items-center gap-1 w-full"
+        className="header flex justify-start items-center gap-1 max-w-[100%] w-full"
         title={title}
       >
         <span

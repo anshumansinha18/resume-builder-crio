@@ -114,16 +114,23 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
         }}
         inputFormat={DATE_PICKER_FORMAT}
         renderInput={(params) => (
-          <TextField {...params} variant="filled" autoComplete="off" fullWidth required />
+          <TextField
+            {...params}
+            variant="filled"
+            autoComplete="off"
+            fullWidth
+            required
+            sx={{ marginBottom: '26px' }}
+          />
         )}
       />
-      <SwitchWidget
+      {/* <SwitchWidget
         label={'I currently study here'}
         value={educationInfo.isStudyingHere ?? false}
         onChange={(newValue: boolean) => {
           onChangeHandler('isStudyingHere', newValue);
         }}
-      />
+      /> */}
       <DatePicker
         label="End date"
         value={educationInfo.isStudyingHere ? null : educationInfo.endDate}

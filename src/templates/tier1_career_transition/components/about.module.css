@@ -1,0 +1,13 @@
+.imageWrapShape {
+  shape-outside: circle(at 50% 50%);
+}
+
+.sectionHeading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px; /* Adjust this value to control the thickness of the underline */
+  height: 2px; /* Adjust this value to control the thickness of the underline */
+  background-color: #0058dd; /* Adjust the color to your preference */
+}
