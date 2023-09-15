@@ -58,3 +58,13 @@ export const resetResumeStore = () => {
   useAwards.getState().reset(ResumeData.awards);
   useActivity.getState().reset(ResumeData.activities);
 };
+
+export const resetResumeSkill = () => {
+  useLanguages.getState().reset(ResumeData.skills.languages);
+  useFrameworks.getState().reset(ResumeData.skills.frameworks);
+  useLibraries.getState().reset(ResumeData.skills.libraries);
+  useDatabases.getState().reset(ResumeData.skills.databases);
+  useTechnologies.getState().reset(ResumeData.skills.technologies);
+  usePractices.getState().reset(ResumeData.skills.practices);
+  useTools.getState().reset(ResumeData.skills.tools);
+};

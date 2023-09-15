@@ -40,7 +40,7 @@ export const useLanguages = create<ISkillState>(
     (set, get) => ({
       title: 'Languages',
       hasLevel: false,
-      values: resumeData.skills.languages,
+      values: resumeData.fdtskills.languages,
       isEnabled: true,
 
       ...getMethods(set, get),
@@ -53,8 +53,8 @@ export const useFrameworks = create<ISkillState>(
   persist(
     (set, get) => ({
       title: 'Frameworks',
-      hasLevel: false,
-      values: resumeData.skills.frameworks,
+      hasLevel: true,
+      values: resumeData.fdtskills.frameworks,
       isEnabled: true,
 
       ...getMethods(set, get),
@@ -68,7 +68,7 @@ export const useTechnologies = create<ISkillState>(
     (set, get) => ({
       title: 'Technologies',
       hasLevel: false,
-      values: resumeData.skills.technologies,
+      values: resumeData.fdtskills.technologies,
       isEnabled: true,
 
       ...getMethods(set, get),
@@ -82,7 +82,7 @@ export const useLibraries = create<ISkillState>(
     (set, get) => ({
       title: 'Libraries',
       hasLevel: false,
-      values: resumeData.skills.libraries,
+      values: resumeData.fdtskills.libraries,
       isEnabled: true,
 
       ...getMethods(set, get),
@@ -96,7 +96,7 @@ export const useDatabases = create<ISkillState>(
     (set, get) => ({
       title: 'Databases',
       hasLevel: false,
-      values: resumeData.skills.databases,
+      values: resumeData.fdtskills.databases,
       isEnabled: true,
 
       ...getMethods(set, get),
@@ -108,9 +108,9 @@ export const useDatabases = create<ISkillState>(
 export const usePractices = create<ISkillState>(
   persist(
     (set, get) => ({
-      title: 'OS',
+      title: 'Practices',
       hasLevel: false,
-      values: resumeData.skills.practices,
+      values: resumeData.fdtskills.practices,
       isEnabled: true,
 
       ...getMethods(set, get),
@@ -124,7 +124,7 @@ export const useTools = create<ISkillState>(
     (set, get) => ({
       title: 'Tools',
       hasLevel: false,
-      values: resumeData.skills.tools,
+      values: resumeData.fdtskills.tools,
       isEnabled: true,
 
       ...getMethods(set, get),
@@ -132,3 +132,13 @@ export const useTools = create<ISkillState>(
     { name: 'tools' }
   )
 );
+
+export const allFDTStore = {
+  useDatabases,
+  useFrameworks,
+  useLanguages,
+  useLibraries,
+  usePractices,
+  useTechnologies,
+  useTools,
+};

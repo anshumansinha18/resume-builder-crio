@@ -119,6 +119,11 @@ const NavBarLayout = () => {
     };
   }, []);
 
+  const handleGlobalReset = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   return (
     <nav className="h-14 w-full bg-resume-800 relative flex py-2.5 pl-5 pr-4 items-center shadow-level-8dp z-20 print:hidden">
       {/* <Link href="/" className="text-white text-xl">
@@ -130,6 +135,9 @@ const NavBarLayout = () => {
           <NavMenuItem caption="Colours" popoverChildren={<ThemeSelect />} />
         </NavBarMenu>
         <NavBarActions>
+          <StyledButton variant="text" onClick={handleGlobalReset}>
+            Reset Data
+          </StyledButton>
           <StyledButton variant="text" onClick={exportResumeData}>
             Export
           </StyledButton>

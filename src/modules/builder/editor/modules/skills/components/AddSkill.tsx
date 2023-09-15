@@ -5,6 +5,8 @@ import { OutlinedButton, TextButton } from 'src/helpers/common/atoms/Buttons';
 import { ISkillItem } from 'src/stores/skill.interface';
 
 const AddSkill = ({
+  title,
+  skillList,
   addHandler,
   items,
   hasLevel = false,
@@ -25,6 +27,9 @@ const AddSkill = ({
     setName('');
   };
 
+  const addAll = () => {
+    skillList[title.toLowerCase()].map((skill) => addHandler({ name: skill, level: 0 }));
+  };
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     setErrorText('');
@@ -82,7 +87,14 @@ const AddSkill = ({
     </form>
   );
 
-  return showForm ? formEl : <OutlinedButton onClick={toggleForm}>+ Add more</OutlinedButton>;
+  return showForm ? (
+    formEl
+  ) : (
+    <>
+      <OutlinedButton onClick={toggleForm}>+ Add more</OutlinedButton>
+      <OutlinedButton onClick={addAll}>+ Add All</OutlinedButton>
+    </>
+  );
 };
 
 export default AddSkill;

@@ -57,38 +57,13 @@
   },
 
   "skills": {
-    "languages": [
-      { "name": "JavaScript", "level": 90 },
-      { "name": "HTML5", "level": 80 },
-      { "name": "CSS", "level": 80 }
-    ],
-    "frameworks": [
-      { "name": "React", "level": 70 },
-      { "name": "Angular", "level": 70 }
-    ],
-    "technologies": [
-      { "name": "Algorithms", "level": 3 },
-      { "name": "Progressive Web Apps", "level": 3 },
-      { "name": "SQL", "level": 3 },
-      { "name": "Data Structures", "level": 3 }
-    ],
-    "libraries": [
-      { "name": "jQuery", "level": 3 },
-      { "name": "Redux", "level": 3 }
-    ],
-    "databases": [{ "name": "Firebase", "level": 3 }],
-    "practices": [
-      { "name": "Windows", "level": 3 },
-      { "name": "Linux", "level": 3 }
-    ],
-    "tools": [
-      { "name": "Git", "level": 3 },
-      { "name": "VS Code", "level": 3 },
-      { "name": "Jira", "level": 3 },
-      { "name": "Webpack", "level": 3 },
-      { "name": "Eclipse", "level": 3 },
-      { "name": "Bitbucket", "level": 3 }
-    ]
+    "languages": [],
+    "frameworks": [],
+    "technologies": [],
+    "libraries": [],
+    "databases": [],
+    "practices": [],
+    "tools": []
   },
 
   "work": [

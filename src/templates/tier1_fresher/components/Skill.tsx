@@ -19,14 +19,20 @@ function SkillCategory({ title, skills }: { title: string; skills: ISkillItem[] 
 export default function Skill({ skills }: { skills: ISkills }) {
   return (
     <SectionHolder className="skills-container">
-      <SkillCategory title="OS" skills={skills.practices} />
-      <SkillCategory title="Languages" skills={skills.languages} />
-      <SkillCategory
-        title="Technologies/Frameworks"
-        skills={[...skills.frameworks, ...skills.technologies]}
-      />
-      <SkillCategory title="Database" skills={skills.databases} />
-      <SkillCategory title="Tools" skills={skills.tools} />
+      {skills.practices.length !== 0 && <SkillCategory title="OS" skills={skills.practices} />}
+      {skills.languages.length !== 0 && (
+        <SkillCategory title="Languages" skills={skills.languages} />
+      )}
+      {(skills.frameworks.length !== 0 || skills.technologies.length !== 0) && (
+        <SkillCategory
+          title="Technologies/Frameworks"
+          skills={[...skills.frameworks, ...skills.technologies]}
+        />
+      )}
+      {skills.databases.length !== 0 && (
+        <SkillCategory title="Database" skills={skills.databases} />
+      )}
+      {skills.tools.length !== 0 && <SkillCategory title="Tools" skills={skills.tools} />}
     </SectionHolder>
   );
 }

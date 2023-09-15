@@ -4,6 +4,7 @@ import SkillPill from '../atoms/SkillPill';
 import DragContainer from 'src/helpers/common/components/DragContainer';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 
 const animation = {
   initial: { height: '1px' },
@@ -11,6 +12,8 @@ const animation = {
 };
 
 export default function Skill({
+  skillList,
+  title,
   items,
   addItem,
   removeItem,
@@ -23,7 +26,9 @@ export default function Skill({
   setItems: (name: ISkillItem[]) => void;
   hasLevel: boolean;
 }) {
-  // console.log(hasLevel);
+  // useEffect(() => {
+  //   skillList[title.toLowerCase()].map((skill) => addItem({ name: skill, level: 0 }));
+  // }, [skillList]);
   return (
     <>
       <motion.div
@@ -46,7 +51,25 @@ export default function Skill({
           </AnimatePresence>
         </DragContainer>
       </motion.div>
-      <AddSkill addHandler={addItem} items={items} hasLevel={hasLevel} />
+      {/* <TrackOption></TrackOption> */}
+      <div className="skill-items mb-2 mt-[-5px]">
+        {skillList[title.toLowerCase()].map((skill) => (
+          <button
+            key={skill}
+            className="bg-transparent hover:bg-gray-500 text-gray-700 font-normal text-sm hover:text-white py-0 px-1 mb-1 mr-1 border border-blue-300 hover:border-transparent rounded"
+            onClick={() => addItem({ name: skill, level: 0 })}
+          >
+            {skill}
+          </button>
+        ))}
+      </div>
+      <AddSkill
+        addHandler={addItem}
+        items={items}
+        hasLevel={hasLevel}
+        skillList={skillList}
+        title={title}
+      />
     </>
   );
 }

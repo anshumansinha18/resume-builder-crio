@@ -47,7 +47,6 @@ const LeftSection = styled.div`
 
 export default function ProfessionalTemplate() {
   const resumeData = useContext(StateContext);
-  console.log(resumeData.projects);
   const skills = resumeData.skills;
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;

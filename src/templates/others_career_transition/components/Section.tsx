@@ -85,7 +85,6 @@ export function Section({
       setSpanWidth(width);
     }
     if (headerRef.current) {
-      console.log(headerRef.current.offsetWidth);
       const width = headerRef.current.offsetWidth;
       setHeaderWidth(width);
     }
