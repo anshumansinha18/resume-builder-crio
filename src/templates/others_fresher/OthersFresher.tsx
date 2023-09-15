@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import AboutMe from './components/AboutMe';
 import Achievements from './components/Achievements';
@@ -51,9 +51,13 @@ export default function ProfessionalTemplate() {
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
 
+  useEffect(() => {
+    console.log(document.getElementById('height-check')?.clientHeight);
+  }, []);
+
   return (
     <ResumeContainer>
-      <LeftSection>
+      <LeftSection id="height-check">
         <Heading
           title={resumeData.basics?.name}
           profiles={resumeData.basics.profiles}
@@ -77,14 +81,17 @@ export default function ProfessionalTemplate() {
         {/* <Section title="Experience" titleClassname="text-lg">
           <Experience work={resumeData.work} />
         </Section> */}
+        {involvements !== '' && (
+          <Section title="Clubs & Activities" titleClassname="text-lg">
+            <Activities activities={involvements} />
+          </Section>
+        )}
 
-        <Section title="Clubs & Activities" titleClassname="text-lg">
-          <Activities activities={involvements} />
-        </Section>
-
-        <Section title="Achievements" titleClassname="text-lg">
-          <Activities activities={achievements} />
-        </Section>
+        {achievements !== '' && (
+          <Section title="Achievements" titleClassname="text-lg">
+            <Activities activities={achievements} />
+          </Section>
+        )}
       </LeftSection>
 
       {/* <RightSection>

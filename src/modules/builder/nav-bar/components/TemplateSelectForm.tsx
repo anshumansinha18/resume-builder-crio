@@ -60,7 +60,7 @@ export const TemplateSelectForm = () => {
       <section>
         <FormControl sx={{ m: 1, minWidth: 100, marginBottom: '30px' }}>
           <Select value={college} name="college" onChange={handleCollegeChange}>
-            <MenuItem value="none">
+            <MenuItem value="none" disabled={college === 'none'}>
               {college === 'none' ? <em>College Type</em> : <em>None</em>}
             </MenuItem>
             <MenuItem value="tier-1">Tier-1</MenuItem>
@@ -78,7 +78,7 @@ export const TemplateSelectForm = () => {
               setTemplate(e.target.value);
             }}
           >
-            <MenuItem value="none">
+            <MenuItem value="none" disabled={template === 'none'}>
               {template === 'none' ? <em>Choose Template</em> : <em>None</em>}
             </MenuItem>
             {secondDropdownOptions.map((option) => (

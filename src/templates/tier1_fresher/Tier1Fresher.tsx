@@ -79,13 +79,17 @@ export default function ProfessionalTemplate() {
           <Project projects={resumeData.projects} />
         </Section>
 
-        <Section title="Clubs & Activities" titleClassname="text-lg">
-          <Activities activities={involvements} />
-        </Section>
+        {involvements && (
+          <Section title="Clubs & Activities" titleClassname="text-lg">
+            <Activities activities={involvements} />
+          </Section>
+        )}
 
-        <Section title="Achievements" titleClassname="text-lg">
-          <Activities activities={achievements} />
-        </Section>
+        {achievements !== '' && (
+          <Section title="Achievements" titleClassname="text-lg">
+            <Activities activities={achievements} />
+          </Section>
+        )}
       </LeftSection>
 
       {/* <RightSection>

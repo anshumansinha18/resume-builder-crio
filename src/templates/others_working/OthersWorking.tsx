@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 
 import AboutMe from './components/AboutMe';
 import Achievements from './components/Achievements';
@@ -46,14 +46,23 @@ const LeftSection = styled.div`
 // `;
 
 export default function ProfessionalTemplate() {
+  const [pageHeight, setPageHeight] = useState(0);
+  const contentRef = useRef(null);
   const resumeData = useContext(StateContext);
   const skills = resumeData.skills;
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
 
+  useEffect(() => {
+    if (contentRef.current) {
+      const contentHeight = contentRef.current.clientHeight;
+      setPageHeight(contentHeight);
+    }
+  }, []);
+
   return (
     <ResumeContainer>
-      <LeftSection>
+      <LeftSection className="check-height" ref={contentRef}>
         <Heading
           title={resumeData.basics?.name}
           profiles={resumeData.basics.profiles}
@@ -82,9 +91,11 @@ export default function ProfessionalTemplate() {
           <Activities activities={involvements} />
         </Section> */}
 
-        <Section title="Achievements" titleClassname="text-lg">
-          <Activities activities={achievements} />
-        </Section>
+        {achievements !== '' && (
+          <Section title="Achievements" titleClassname="text-lg">
+            <Activities activities={achievements} />
+          </Section>
+        )}
       </LeftSection>
 
       {/* <RightSection>
@@ -127,6 +138,14 @@ export default function ProfessionalTemplate() {
           </Section>
         </SectionValidator>
       </RightSection> */}
+      <style>
+        {`@media print {
+          .check-height {
+            min-height: 1920px; /* Set the desired height threshold for the first page */
+            page-break-after: always; /* Force page break after the first page */
+          }
+        }`}
+      </style>
     </ResumeContainer>
   );
 }

@@ -82,9 +82,11 @@ export default function ProfessionalTemplate() {
           <Activities activities={involvements} />
         </Section> */}
 
-        <Section title="Achievements" titleClassname="text-lg">
-          <Activities activities={achievements} />
-        </Section>
+        {achievements !== '' && (
+          <Section title="Achievements" titleClassname="text-lg">
+            <Activities activities={achievements} />
+          </Section>
+        )}
       </LeftSection>
 
       {/* <RightSection>

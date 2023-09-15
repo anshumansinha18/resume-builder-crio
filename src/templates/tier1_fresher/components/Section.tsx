@@ -37,6 +37,11 @@ const SectionHolder = styled.div`
     bottom: 3px;
     background-color: ${(props) => props.theme.fontColor};
   }
+
+  .break-page {
+    break-before: page;
+    margin-top: 20px;
+  }
 `;
 
 function SocialIcons({ profiles }: { profiles: IProfiles[] }) {
@@ -92,12 +97,19 @@ export function Section({
   };
   useEffect(() => {
     calculateWidth();
+    const element = document.getElementById('height-check-2');
+    const rect = element?.getBoundingClientRect();
+    const yCoordinate = rect.top + window.scrollY;
+    console.log(yCoordinate);
   }, []);
   return (
     <SectionHolder>
       <div
         ref={headerRef}
-        className="header flex justify-start items-center gap-1 w-full"
+        id="height-check-2"
+        className={`header flex justify-start items-center gap-1 w-full ${
+          title === 'Achievements' ? 'height-check-2' : ''
+        }`}
         title={title}
       >
         <span
