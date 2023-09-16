@@ -18,6 +18,8 @@ import Skill from './components/Skill';
 import Experience from './components/Experience';
 import Project from './components/Project';
 import Activities from './components/Activities';
+import { offset } from 'jodit/types/core/helpers';
+import MiniProject from './components/MiniProject';
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -46,23 +48,61 @@ const LeftSection = styled.div`
 // `;
 
 export default function ProfessionalTemplate() {
-  const [pageHeight, setPageHeight] = useState(0);
   const contentRef = useRef(null);
   const resumeData = useContext(StateContext);
   const skills = resumeData.skills;
+  const miniProjects = resumeData.miniProjects;
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
 
   useEffect(() => {
-    if (contentRef.current) {
-      const contentHeight = contentRef.current.clientHeight;
-      setPageHeight(contentHeight);
-    }
+    const containerRect = document.getElementById('height-check')?.getBoundingClientRect();
+
+    const leftSection = document.getElementById('height-check');
+    let pageBreakAdded = false;
+    Array.from(leftSection?.children).forEach((ele) => {
+      if (ele.id) {
+        if (!pageBreakAdded) {
+          //calculate current section's height relative to resume-layout container.
+          console.log(ele.id);
+          const elementRect = ele?.getBoundingClientRect();
+          const elementHeightRelative = elementRect?.bottom - containerRect?.top;
+
+          //If the section's height is greater than a particular threshold, then push it to second page.
+
+          if (elementHeightRelative > 1051) {
+            //handle edge case of education and project.
+            //As education and project sections have multiple fields, don't send entire project/education section to next page if it exceeds the threshold.
+            //Send a particular sub-section to the next page.
+            if (ele.id === 'education' || ele.id === 'projects' || ele.id === 'mini-projects') {
+              Array.from(ele.children[1].children).forEach((section, index) => {
+                const subSectionRect = section.getBoundingClientRect();
+                const relativeSubSectionHeight = subSectionRect.bottom - containerRect?.top;
+
+                if (!pageBreakAdded) {
+                  //handling edge case: If first sub-section of education/project is exceeding the threshold, then push entire section to next page.
+                  if (relativeSubSectionHeight > 1051 && index > 0) {
+                    pageBreakAdded = true;
+                    section.style.cssText = 'break-before: page; margin-top: 40px';
+                  } else if (relativeSubSectionHeight > 1051) {
+                    pageBreakAdded = true;
+                    ele.style.cssText = 'break-before: page; margin-top: 40px';
+                  }
+                }
+              });
+            } else {
+              ele.style.cssText = 'break-before: page; margin-top: 40px';
+              pageBreakAdded = true;
+            }
+          }
+        }
+      }
+    });
   }, []);
 
   return (
     <ResumeContainer>
-      <LeftSection className="check-height" ref={contentRef}>
+      <LeftSection id="height-check" ref={contentRef}>
         <Heading
           title={resumeData.basics?.name}
           profiles={resumeData.basics.profiles}
@@ -70,29 +110,28 @@ export default function ProfessionalTemplate() {
         >
           <BasicIntro basics={resumeData.basics} profiles={resumeData.basics.profiles} />
         </Heading>
-
         <Section title="Skills" titleClassname="text-lg">
           <Skill skills={skills} />
         </Section>
-
         <Section title="Experience" titleClassname="text-lg">
           <Experience work={resumeData.work} />
         </Section>
-
-        <Section title="Projects" titleClassname="text-lg">
+        <Section id="projects" title="Projects" titleClassname="text-lg">
           <Project projects={resumeData.projects} />
         </Section>
 
-        <Section title="Education" titleClassname="text-lg">
-          <Education education={resumeData.education} />
+        <Section id="mini-projects" title="Mini Projects" titleClassname="text-lg">
+          <MiniProject miniProjects={miniProjects} />
         </Section>
 
+        <Section id="education" title="Education" titleClassname="text-lg">
+          <Education education={resumeData.education} />
+        </Section>
         {/* <Section title="Clubs & Activities" titleClassname="text-lg">
           <Activities activities={involvements} />
         </Section> */}
-
         {achievements !== '' && (
-          <Section title="Achievements" titleClassname="text-lg">
+          <Section id="achievements" title="Achievements" titleClassname="text-lg">
             <Activities activities={achievements} />
           </Section>
         )}

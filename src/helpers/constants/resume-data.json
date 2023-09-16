@@ -131,6 +131,16 @@
       "isVolunteeringNow": false
     }
   ],
+  "miniProjects": [
+    {
+      "id": "1",
+      "name": "QtripStatic",
+      "url": "https://xyx.com/",
+      "timeline": "2013-01-01",
+      "summary": "Organized several hackthons & monthly meetup to improve the community",
+      "isBuildingNow": false
+    }
+  ],
   "awards": [
     {
       "title": "Certificate of exceptional bug finder",

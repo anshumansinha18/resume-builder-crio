@@ -39,7 +39,7 @@ export default function Project({ projects }: { projects: IProjectItem[] }) {
   return (
     <SectionHolder className="project-container">
       {projects.map((project) => (
-        <>
+        <div key={project.id}>
           <div className="experience-header flex justify-between">
             <div key={project.id} className="project-title font-bold text-md">
               {project.name} |{' '}
@@ -54,7 +54,7 @@ export default function Project({ projects }: { projects: IProjectItem[] }) {
           </div>
           <div className="text-[13px]">{project.intro}</div>
           <HTMLRenderer htmlString={project.description}></HTMLRenderer>
-        </>
+        </div>
       ))}
     </SectionHolder>
   );

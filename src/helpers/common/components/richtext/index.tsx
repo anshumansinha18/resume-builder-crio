@@ -52,7 +52,9 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
 
   useEffect(() => {
     if (editorRef.current && editorInstanceCreated) {
-      editorRef.current.events.on('change', onChange);
+      editorRef.current.events.on('blur', () => {
+        onChange(editorRef.current.value);
+      });
     }
   }, [onChange, editorInstanceCreated]);
 

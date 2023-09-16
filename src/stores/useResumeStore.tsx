@@ -16,6 +16,7 @@ import { useEducations } from './education';
 import { useExperiences } from './experience';
 import { useVoluteeringStore } from './volunteering';
 import { useProjects } from './projects';
+import { useMiniProjectsStore } from './miniProjects';
 
 export const useResumeStore = () => {
   return {
@@ -25,6 +26,7 @@ export const useResumeStore = () => {
     education: useEducations((state) => state.academics),
     awards: useAwards((state) => state.awards),
     volunteer: useVoluteeringStore((state) => state.volunteeredExps),
+    miniProjects: useMiniProjectsStore((state) => state.miniProjects),
     skills: {
       languages: useLanguages((state) => state.get()),
       frameworks: useFrameworks((state) => state.get()),
@@ -55,6 +57,7 @@ export const resetResumeStore = () => {
   useProjects.getState().reset(ResumeData.projects);
   useEducations.getState().reset(ResumeData.education);
   useVoluteeringStore.getState().reset(ResumeData.volunteer);
+  useMiniProjectsStore.getState().reset(ResumeData.miniProjects);
   useAwards.getState().reset(ResumeData.awards);
   useActivity.getState().reset(ResumeData.activities);
 };

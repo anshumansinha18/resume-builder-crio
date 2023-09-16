@@ -4,6 +4,7 @@ import EducationLayout from 'src/modules/builder/editor/modules/education/Educat
 import ExperienceLayout from 'src/modules/builder/editor/modules/experience/ExperienceLayout';
 import ActivitiesLayout from 'src/modules/builder/editor/modules/activities/ActivitiesLayout';
 import VolunteeringLayout from 'src/modules/builder/editor/modules/volunteering/VolunteeringLayout';
+import MiniProjectLayout from 'src/modules/builder/editor/modules/mini-projects/MiniProjectsLayout';
 import AwardsLayout from 'src/modules/builder/editor/modules/awards/AwardsLayout';
 import ProjectsLayout from 'src/modules/builder/editor/modules/projects/ProjectsLayout';
 
@@ -18,6 +19,7 @@ export const headers: {
   education: { title: 'Education', component: EducationLayout },
   experience: { title: 'Experience', component: ExperienceLayout },
   activities: { title: 'Activities', component: ActivitiesLayout },
-  volunteering: { title: 'Volunteering', component: VolunteeringLayout },
+  // volunteering: { title: 'Volunteering', component: VolunteeringLayout },
   projects: { title: 'Projects', component: ProjectsLayout },
+  miniProjects: { title: 'Mini Projects', component: MiniProjectLayout },
 };

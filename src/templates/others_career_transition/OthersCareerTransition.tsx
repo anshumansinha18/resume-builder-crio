@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import AboutMe from './components/AboutMe';
 import Achievements from './components/Achievements';
@@ -18,6 +18,7 @@ import Skill from './components/Skill';
 import Experience from './components/Experience';
 import Project from './components/Project';
 import Activities from './components/Activities';
+import MiniProject from './components/MiniProject';
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -48,12 +49,63 @@ const LeftSection = styled.div`
 export default function ProfessionalTemplate() {
   const resumeData = useContext(StateContext);
   const skills = resumeData.skills;
+  const miniProjects = resumeData.miniProjects;
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
 
+  useEffect(() => {
+    const containerRect = document.getElementById('height-check')?.getBoundingClientRect();
+
+    const leftSection = document.getElementById('height-check');
+    let pageBreakAdded = false;
+    Array.from(leftSection?.children).forEach((ele) => {
+      if (ele.id) {
+        if (!pageBreakAdded) {
+          //calculate current section's height relative to resume-layout container.
+          console.log(ele.id);
+          const elementRect = ele?.getBoundingClientRect();
+          const elementHeightRelative = elementRect?.bottom - containerRect?.top;
+
+          //If the section's height is greater than a particular threshold, then push it to second page.
+
+          if (elementHeightRelative > 1051) {
+            //handle edge case of education and project.
+            //As education and project sections have multiple fields, don't send entire project/education section to next page if it exceeds the threshold.
+            //Send a particular sub-section to the next page.
+            if (
+              ele.id === 'education' ||
+              ele.id === 'projects' ||
+              ele.id === 'mini-projects' ||
+              ele.id === 'experience'
+            ) {
+              Array.from(ele.children[1].children).forEach((section, index) => {
+                const subSectionRect = section.getBoundingClientRect();
+                const relativeSubSectionHeight = subSectionRect.bottom - containerRect?.top;
+
+                if (!pageBreakAdded) {
+                  //handling edge case: If first sub-section of education/project is exceeding the threshold, then push entire section to next page.
+                  if (relativeSubSectionHeight > 1051 && index > 0) {
+                    pageBreakAdded = true;
+                    section.style.cssText = 'break-before: page; margin-top: 40px';
+                  } else if (relativeSubSectionHeight > 1051) {
+                    pageBreakAdded = true;
+                    ele.style.cssText = 'break-before: page; margin-top: 40px';
+                  }
+                }
+              });
+            } else {
+              ele.style.cssText = 'break-before: page; margin-top: 40px';
+              pageBreakAdded = true;
+            }
+          }
+        }
+      }
+    });
+  }, []);
+
   return (
     <ResumeContainer>
-      <LeftSection>
+      <LeftSection id="height-check">
         <Heading
           title={resumeData.basics?.name}
           profiles={resumeData.basics.profiles}
@@ -69,15 +121,19 @@ export default function ProfessionalTemplate() {
         <Section title="Profile Summary" titleClassname="text-lg">
           <AboutMe summary={resumeData.basics.summary} />
         </Section>
-        <Section title="Projects" titleClassname="text-lg">
+        <Section id="projects" title="Projects" titleClassname="text-lg">
           <Project projects={resumeData.projects} />
         </Section>
 
-        <Section title="Experience" titleClassname="text-lg">
+        <Section id="mini-projects " title="Mini Projects" titleClassname="text-lg">
+          <MiniProject miniProjects={miniProjects} />
+        </Section>
+
+        <Section id="experience" title="Experience" titleClassname="text-lg">
           <Experience work={resumeData.work} />
         </Section>
 
-        <Section title="Education" titleClassname="text-lg">
+        <Section id="education" title="Education" titleClassname="text-lg">
           <Education education={resumeData.education} />
         </Section>
 

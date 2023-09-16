@@ -21,7 +21,6 @@ import Activities from './components/Activities';
 
 const ResumeContainer = styled.div`
   display: flex;
-  height: 100%;
   padding: 40px 50px;
   column-gap: 10px;
 

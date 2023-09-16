@@ -70,6 +70,7 @@ function SocialIcons({ profiles }: { profiles: IProfiles[] }) {
 }
 
 export function Section({
+  id,
   title,
   children,
   titleClassname,
@@ -103,7 +104,7 @@ export function Section({
     console.log(yCoordinate);
   }, []);
   return (
-    <SectionHolder>
+    <SectionHolder id={id}>
       <div
         ref={headerRef}
         id="height-check-2"

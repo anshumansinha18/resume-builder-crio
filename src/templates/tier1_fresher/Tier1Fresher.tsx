@@ -18,6 +18,7 @@ import Skill from './components/Skill';
 import Experience from './components/Experience';
 import Project from './components/Project';
 import Activities from './components/Activities';
+import MiniProject from './components/MiniProject';
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const LeftSection = styled.div`
 
 export default function ProfessionalTemplate() {
   const resumeData = useContext(StateContext);
-  console.log(resumeData.projects);
+  const miniProjects = resumeData.miniProjects;
   const skills = resumeData.skills;
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
@@ -75,9 +76,16 @@ export default function ProfessionalTemplate() {
           <Experience work={resumeData.work} />
         </Section> */}
 
-        <Section title="Projects" titleClassname="text-lg">
-          <Project projects={resumeData.projects} />
-        </Section>
+        {resumeData.projects.length !== 0 && (
+          <Section title="Projects" titleClassname="text-lg">
+            <Project projects={resumeData.projects} />
+          </Section>
+        )}
+        {miniProjects.length !== 0 && (
+          <Section title="Mini Projects" titleClassname="text-lg">
+            <MiniProject miniProjects={miniProjects} />
+          </Section>
+        )}
 
         {involvements && (
           <Section title="Clubs & Activities" titleClassname="text-lg">
