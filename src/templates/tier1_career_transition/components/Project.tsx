@@ -46,7 +46,12 @@ export default function Project({ projects }: { projects: IProjectItem[] }) {
               <span className="text-[14px] font-normal italic">{project.languages}</span>
             </div>
             <div className="flex gap-2 text-xs items-center">
-              <a href={project.demoLink} rel="noopener noreferrer" className="font-bold" target="_blank">
+              <a
+                href={project.demoLink}
+                rel="noopener noreferrer"
+                className="font-bold"
+                target="_blank"
+              >
                 Demo Link
               </a>
               <div className="project-date  text-xs font-bold">{formatDate(project.timeline)}</div>
