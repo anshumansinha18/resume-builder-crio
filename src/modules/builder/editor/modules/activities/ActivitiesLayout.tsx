@@ -17,7 +17,7 @@ export interface IAllActivityTabs {
 const allActivityTabs: IAllActivityTabs = {
   involvements: {
     key: 'involvements',
-    label: 'Involvements',
+    label: 'Club & Activities',
     component: Involvements,
   },
   achievements: {

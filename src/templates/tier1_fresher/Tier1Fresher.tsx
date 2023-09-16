@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import AboutMe from './components/AboutMe';
 import Achievements from './components/Achievements';
@@ -53,9 +53,54 @@ export default function ProfessionalTemplate() {
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
 
+  useEffect(() => {
+    const containerRect = document.getElementById('height-check')?.getBoundingClientRect();
+
+    const leftSection = document.getElementById('height-check');
+    let pageBreakAdded = false;
+    Array.from(leftSection?.children).forEach((ele) => {
+      if (ele.id) {
+        if (!pageBreakAdded) {
+          //calculate current section's height relative to resume-layout container.
+          console.log(ele.id);
+          const elementRect = ele?.getBoundingClientRect();
+          const elementHeightRelative = elementRect?.bottom - containerRect?.top;
+
+          //If the section's height is greater than a particular threshold, then push it to second page.
+
+          if (elementHeightRelative > 1051) {
+            //handle edge case of education and project.
+            //As education and project sections have multiple fields, don't send entire project/education section to next page if it exceeds the threshold.
+            //Send a particular sub-section to the next page.
+            if (ele.id === 'experience' || ele.id === 'projects' || ele.id === 'mini-projects') {
+              Array.from(ele.children[1].children).forEach((section, index) => {
+                const subSectionRect = section.getBoundingClientRect();
+                const relativeSubSectionHeight = subSectionRect.bottom - containerRect?.top;
+
+                if (!pageBreakAdded) {
+                  //handling edge case: If first sub-section of education/project is exceeding the threshold, then push entire section to next page.
+                  if (relativeSubSectionHeight > 1051 && index > 0) {
+                    pageBreakAdded = true;
+                    section.style.cssText = 'break-before: page; margin-top: 40px';
+                  } else if (relativeSubSectionHeight > 1051) {
+                    pageBreakAdded = true;
+                    ele.style.cssText = 'break-before: page; margin-top: 40px';
+                  }
+                }
+              });
+            } else {
+              ele.style.cssText = 'break-before: page; margin-top: 40px';
+              pageBreakAdded = true;
+            }
+          }
+        }
+      }
+    });
+  }, []);
+
   return (
     <ResumeContainer>
-      <LeftSection>
+      <LeftSection id="height-check">
         <Heading
           title={resumeData.basics?.name}
           profiles={resumeData.basics.profiles}
@@ -77,24 +122,24 @@ export default function ProfessionalTemplate() {
         </Section> */}
 
         {resumeData.projects.length !== 0 && (
-          <Section title="Projects" titleClassname="text-lg">
+          <Section id="projects" title="Projects" titleClassname="text-lg">
             <Project projects={resumeData.projects} />
           </Section>
         )}
         {miniProjects.length !== 0 && (
-          <Section title="Mini Projects" titleClassname="text-lg">
+          <Section id="mini-projects" title="Mini Projects" titleClassname="text-lg">
             <MiniProject miniProjects={miniProjects} />
           </Section>
         )}
 
         {involvements && (
-          <Section title="Clubs & Activities" titleClassname="text-lg">
+          <Section id="clubs-activities" title="Clubs & Activities" titleClassname="text-lg">
             <Activities activities={involvements} />
           </Section>
         )}
 
         {achievements !== '' && (
-          <Section title="Achievements" titleClassname="text-lg">
+          <Section id="achievements" title="Achievements" titleClassname="text-lg">
             <Activities activities={achievements} />
           </Section>
         )}

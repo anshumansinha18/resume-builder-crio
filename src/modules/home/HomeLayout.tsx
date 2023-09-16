@@ -36,15 +36,15 @@ const HomeLayout = () => {
           </NavBarActions>
           <NavBarActions>
             <Link href="#contribute" passHref={true}>
-              <StyledButton variant="text" className="max-md:hidden">
+              {/* <StyledButton variant="text" className="max-md:hidden">
                 Contribute
-              </StyledButton>
+              </StyledButton> */}
             </Link>
-            <Link href="#about-us" passHref={true}>
+            {/* <Link href="#about-us" passHref={true}>
               <StyledButton variant="text">About us</StyledButton>
-            </Link>
+            </Link> */}
             <a
-              href={'https://github.com/sadanandpai/resume-builder'}
+              href={'https://github.com/anshumansinha18/resume-builder-crio'}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -152,7 +152,7 @@ const HomeLayout = () => {
               </div>
               <div>
                 <a
-                  href="https://github.com/sadanandpai/resume-builder"
+                  href="https://github.com/anshumansinha18/resume-builder-crio"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -166,7 +166,7 @@ const HomeLayout = () => {
         </div>
       </div>
 
-      <div
+      {/* <div
         id="about-us"
         className="mx-6 md:mx-40 xl:mx-60 my-32"
         style={{ fontFamily: "'Roboto Slab', serif" }}
@@ -191,7 +191,7 @@ const HomeLayout = () => {
           </a>
           ↗
         </p>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

@@ -17,7 +17,7 @@ export default function Experience({ work }: { work: IExperienceItem[] }) {
           <div className="experience-header flex justify-between items-center">
             <div className="experience-title font-bold text-md">{workItem.name}</div>
             <div className="experience-date  text-xs font-bold">
-              [{workItem.startDate} - {workItem.endDate ? workItem.endDate : `Present`}]
+              {workItem.startDate} - {workItem.endDate ? workItem.endDate : `Present`}
             </div>
           </div>
           <HTMLRenderer htmlString={workItem.summary}></HTMLRenderer>

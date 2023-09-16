@@ -27,7 +27,7 @@ export default function Experience({ work }: { work: IExperienceItem[] }) {
               {workItem.name}
             </div>
             <div className="experience-date  text-xs font-bold">
-              [{workItem.startDate} - {workItem.endDate ? workItem.endDate : `Present`}]
+              {workItem.startDate} - {workItem.endDate ? workItem.endDate : `Present`}
             </div>
           </div>
           <HTMLRenderer htmlString={workItem.summary}></HTMLRenderer>

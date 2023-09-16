@@ -23,7 +23,7 @@ const BuilderLayout = () => {
         </aside>
       </main>
 
-      <footer className="print:hidden">
+      {/* <footer className="print:hidden">
         <Tooltip title="Share feedback">
           <a
             href="https://forms.gle/YmpXEZLk6LYdnqet7"
@@ -34,7 +34,7 @@ const BuilderLayout = () => {
             <Image src="/icons/rate-review.svg" alt="Feedback button" width="24" height="24" />
           </a>
         </Tooltip>
-      </footer>
+      </footer> */}
     </div>
   );
 };

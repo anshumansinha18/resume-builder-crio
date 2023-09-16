@@ -100,14 +100,14 @@ const Links = ({
           onURLChange(event.target.value, SUPPORTED_NETWORKS.linkedin);
         }}
       />
-      <TextField
+      {/* <TextField
         label="Twitter"
         variant="filled"
         value={networks[SUPPORTED_NETWORKS.twitter].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.twitter);
         }}
-      />
+      /> */}
       <TextField
         label="Github"
         variant="filled"
@@ -116,38 +116,38 @@ const Links = ({
           onURLChange(event.target.value, SUPPORTED_NETWORKS.github);
         }}
       />
-      <TextField
+      {/* <TextField
         label="Hackerrank"
         variant="filled"
         value={networks[SUPPORTED_NETWORKS.hackerrank].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.hackerrank);
         }}
-      />
-      <TextField
+      /> */}
+      {/* <TextField
         label="HackerEarth"
         variant="filled"
         value={networks[SUPPORTED_NETWORKS.hackerearth].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.hackerearth);
         }}
-      />
-      <TextField
+      /> */}
+      {/* <TextField
         label="CodeChef"
         variant="filled"
         value={networks[SUPPORTED_NETWORKS.codechef].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.codechef);
         }}
-      />
-      <TextField
+      /> */}
+      {/* <TextField
         label="Leetcode"
         variant="filled"
         value={networks[SUPPORTED_NETWORKS.leetcode].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.leetcode);
         }}
-      />
+      /> */}
     </Fragment>
   );
 };

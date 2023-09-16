@@ -11,21 +11,21 @@ const About = ({
   return (
     <Fragment>
       <RichtextEditor
-        label="About me"
+        label="Profile Summary"
         value={basicTabs.summary}
         onChange={(htmlOutput) => {
           onChangeHandler(htmlOutput, 'summary');
         }}
         name="summary"
       />
-      <RichtextEditor
+      {/* <RichtextEditor
         label="Career objective"
         value={basicTabs.objective}
         onChange={(htmlOutput) => {
           onChangeHandler(htmlOutput, 'objective');
         }}
         name="objective"
-      />
+      /> */}
     </Fragment>
   );
 };

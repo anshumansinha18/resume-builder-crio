@@ -25,7 +25,7 @@ export const Education = ({ education }: { education: IEducation[] }) => {
                 </div>
               )}
             </div>
-            <div className="text-xs italic">
+            <div className="text-xs font-bold">
               {formatDate(item.startDate)} - {formatDate(item.endDate)}
             </div>
           </div>

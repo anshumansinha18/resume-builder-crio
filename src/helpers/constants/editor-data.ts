@@ -18,7 +18,7 @@ export const headers: {
   },
   education: { title: 'Education', component: EducationLayout },
   experience: { title: 'Experience', component: ExperienceLayout },
-  activities: { title: 'Activities', component: ActivitiesLayout },
+  activities: { title: 'Activities & Achievements', component: ActivitiesLayout },
   // volunteering: { title: 'Volunteering', component: VolunteeringLayout },
   projects: { title: 'Projects', component: ProjectsLayout },
   miniProjects: { title: 'Mini Projects', component: MiniProjectLayout },

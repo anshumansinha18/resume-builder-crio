@@ -126,9 +126,9 @@ const NavBarLayout = () => {
 
   return (
     <nav className="h-14 w-full bg-resume-800 relative flex py-2.5 pl-5 pr-4 items-center shadow-level-8dp z-20 print:hidden">
-      {/* <Link href="/" className="text-white text-xl">
-        Home
-      </Link> */}
+      <Link href="/" className="text-white text-md">
+        HOME
+      </Link>
       <div className="flex-auto flex justify-between items-center ml-5">
         <NavBarMenu>
           <NavMenuItem caption={`Choose Templates`} popoverChildren={<TemplateSelect />} />
@@ -138,10 +138,10 @@ const NavBarLayout = () => {
           <StyledButton variant="text" onClick={handleGlobalReset}>
             Reset Data
           </StyledButton>
-          <StyledButton variant="text" onClick={exportResumeData}>
+          {/* <StyledButton variant="text" onClick={exportResumeData}>
             Export
-          </StyledButton>
-          <StyledButton
+          </StyledButton> */}
+          {/* <StyledButton
             variant="text"
             onClick={() => {
               if (fileInputRef.current) {
@@ -158,7 +158,7 @@ const NavBarLayout = () => {
               accept="application/json"
               onChange={handleFileChange}
             />
-          </StyledButton>
+          </StyledButton> */}
           <PrintResume />
         </NavBarActions>
       </div>

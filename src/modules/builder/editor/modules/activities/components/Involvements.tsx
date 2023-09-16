@@ -6,7 +6,7 @@ const Involvements = () => {
   const activities = useActivity((state) => state.activities);
   return (
     <RichtextEditor
-      label="Involvements"
+      label="Clubs & Activities"
       value={activities.involvements}
       onChange={(htmlOutput) => {
         useActivity.getState().updateInvolvements(htmlOutput);
