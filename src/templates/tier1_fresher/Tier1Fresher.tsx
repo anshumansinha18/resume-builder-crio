@@ -52,6 +52,7 @@ export default function ProfessionalTemplate() {
   const skills = resumeData.skills;
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
+  const work = resumeData.work;
 
   useEffect(() => {
     const containerRect = document.getElementById('height-check')?.getBoundingClientRect();
@@ -72,7 +73,12 @@ export default function ProfessionalTemplate() {
             //handle edge case of education and project.
             //As education and project sections have multiple fields, don't send entire project/education section to next page if it exceeds the threshold.
             //Send a particular sub-section to the next page.
-            if (ele.id === 'experience' || ele.id === 'projects' || ele.id === 'mini-projects') {
+            if (
+              ele.id === 'experience' ||
+              ele.id === 'projects' ||
+              ele.id === 'mini-projects' ||
+              ele.id === 'education'
+            ) {
               Array.from(ele.children[1].children).forEach((section, index) => {
                 const subSectionRect = section.getBoundingClientRect();
                 const relativeSubSectionHeight = subSectionRect.bottom - containerRect?.top;
@@ -113,7 +119,13 @@ export default function ProfessionalTemplate() {
           <Skill skills={skills} />
         </Section>
 
-        <Section title="Education" titleClassname="text-lg">
+        {resumeData.work.length !== 0 && (
+          <Section id="experience" title="Experience" titleClassname="text-lg">
+            <Experience work={work} />
+          </Section>
+        )}
+
+        <Section id="education" title="Education" titleClassname="text-lg">
           <Education education={resumeData.education} />
         </Section>
 

@@ -49,6 +49,7 @@ export default function ProfessionalTemplate() {
   const skills = resumeData.skills;
   const involvements = resumeData.activities.involvements;
   const achievements = resumeData.activities.achievements;
+  const work = resumeData.work;
 
   useEffect(() => {
     const containerRect = document.getElementById('height-check')?.getBoundingClientRect();
@@ -109,6 +110,12 @@ export default function ProfessionalTemplate() {
         <Section title="Skills" titleClassname="text-lg">
           <Skill skills={skills} />
         </Section>
+
+        {resumeData.work.length !== 0 && (
+          <Section id="experience" title="Experience" titleClassname="text-lg">
+            <Experience work={work} />
+          </Section>
+        )}
 
         <Section id="projects" title="Projects" titleClassname="text-lg">
           <Project projects={resumeData.projects} />
