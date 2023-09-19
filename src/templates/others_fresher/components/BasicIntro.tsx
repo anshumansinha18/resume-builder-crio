@@ -25,7 +25,9 @@ export default function BasicIntro({
   return (
     <div className="flex flex-col items-center gap-0">
       <div className="">
-        <Role className="text-[15=6px] font-medium">{basics.label}</Role>
+        <Role className="text-[15=6px] font-medium">
+          {basics.label !== '' && basics.label !== ' ' && basics.label}
+        </Role>
       </div>
 
       <div className="flex justify-end gap-2">
