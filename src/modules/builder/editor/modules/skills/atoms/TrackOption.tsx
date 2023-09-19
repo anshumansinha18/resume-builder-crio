@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { blue } from '@mui/material/colors';
 import { resetResumeSkill } from 'src/stores/useResumeStore';
+import useTrackStore from 'src/stores/track';
 
 const SectionHolder = styled.div`
   display: flex;
@@ -21,9 +22,10 @@ const SectionHolder = styled.div`
 `;
 
 export default function TrackOption({ selectedTrack, setSelectedTrack, skillState, skillList }) {
+  const setTrack = useTrackStore((state) => state.setTrack);
   const handleClick = (track) => {
     setSelectedTrack(track);
-
+    setTrack(track);
     resetResumeSkill();
   };
   return (

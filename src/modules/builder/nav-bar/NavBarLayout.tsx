@@ -159,7 +159,7 @@ const NavBarLayout = () => {
               onChange={handleFileChange}
             />
           </StyledButton> */}
-          <PrintResume />
+          <PrintResume name={useBasicDetails.getState().values.name} />
         </NavBarActions>
       </div>
       <Toast

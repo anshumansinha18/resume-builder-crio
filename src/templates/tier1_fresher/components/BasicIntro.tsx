@@ -46,7 +46,9 @@ export default function BasicIntro({
         </div>
         <div className="flex gap-1 items-center">
           {/* <Image src={'/icons/location.svg'} alt="Location" width={12} height={12} /> */}
-          <span className="text-sm">{`github/${findUsername(profiles[0].url)}`}</span>
+          <a className="text-sm cursor-pointer" href={`${profiles[0].url}`}>{`github/${findUsername(
+            profiles[0].url
+          )}`}</a>
           <span>|</span>
         </div>
         <div className="flex gap-1 items-center">

@@ -21,7 +21,7 @@ export const Education = ({ education }: { education: IEducation[] }) => {
               <div className="italic text-sm">{item.institution}</div>
               {item.score && (
                 <div>
-                  CPI: <span className="font-bold text-sm">{item.score}</span>
+                  CGPA: <span className="font-bold text-sm">{item.score}</span>
                 </div>
               )}
             </div>
