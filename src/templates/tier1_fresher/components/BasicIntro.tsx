@@ -48,14 +48,47 @@ export default function BasicIntro({
         </div>
         <div className="flex gap-1 items-center">
           {/* <Image src={'/icons/location.svg'} alt="Location" width={12} height={12} /> */}
-          <a className="text-sm cursor-pointer" href={`${profiles[0].url}`}>{`github/${findUsername(
-            profiles[0].url
-          )}`}</a>
-          <span>|</span>
+          {profiles[2].url !== '' && (
+            <>
+              <a
+                className="text-sm text-decoration-line: underline text-blue-600"
+                rel="noopener noreferrer"
+                target="_blank"
+                href={`${profiles[2].url}`}
+              >
+                Github
+              </a>
+              <span>|</span>
+            </>
+          )}
         </div>
-        <div className="flex gap-1 items-center">
+        <div className="flex gap-1 items-center ">
           {/* <Image src={'/icons/location.svg'} alt="Location" width={12} height={12} /> */}
-          <span className="text-sm">{`linkedin/${findUsername(profiles[2].url)}`}</span>
+          {profiles[0].url && (
+            <a
+              className="text-sm text-decoration-line: underline text-blue-600"
+              rel="noopener noreferrer"
+              target="_blank"
+              href={profiles[0].url}
+            >
+              Linkedin
+            </a>
+          )}
+        </div>
+        <div className="flex gap-1 items-center ">
+          {profiles[3].url && (
+            <>
+              <span> | </span>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                className="text-sm text-decoration-line: underline text-blue-600"
+                href={profiles[3].url}
+              >
+                Crio Portfolio
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

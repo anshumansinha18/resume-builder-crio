@@ -138,10 +138,10 @@ const NavBarLayout = () => {
           <StyledButton variant="text" onClick={handleGlobalReset}>
             Reset Data
           </StyledButton>
-          {/* <StyledButton variant="text" onClick={exportResumeData}>
+          <StyledButton variant="text" onClick={exportResumeData}>
             Export
-          </StyledButton> */}
-          {/* <StyledButton
+          </StyledButton>
+          <StyledButton
             variant="text"
             onClick={() => {
               if (fileInputRef.current) {
@@ -158,7 +158,7 @@ const NavBarLayout = () => {
               accept="application/json"
               onChange={handleFileChange}
             />
-          </StyledButton> */}
+          </StyledButton>
           <PrintResume name={useBasicDetails.getState().values.name} />
         </NavBarActions>
       </div>
