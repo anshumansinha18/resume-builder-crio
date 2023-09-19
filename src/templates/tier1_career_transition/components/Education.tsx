@@ -2,13 +2,6 @@ import { IEducation } from 'src/stores/index.interface';
 import { dateParser } from 'src/helpers/utils';
 
 export const Education = ({ education }: { education: IEducation[] }) => {
-  function formatDate(inputDateStr: string): string | void {
-    if (!inputDateStr) return;
-    const inputDate = new Date(inputDateStr);
-    const year = inputDate.getFullYear();
-
-    return `${year}`;
-  }
   return (
     <div>
       {education.map((item: IEducation, index: number) => {
@@ -26,7 +19,7 @@ export const Education = ({ education }: { education: IEducation[] }) => {
               )}
             </div>
             <div className="text-xs font-bold">
-              {formatDate(item.startDate)} - {formatDate(item.endDate)}
+              {dateParser(item.startDate)} - {dateParser(item.endDate)}
             </div>
           </div>
         );

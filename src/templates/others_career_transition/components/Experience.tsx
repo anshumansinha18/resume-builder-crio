@@ -3,6 +3,7 @@ import Color from 'color';
 import { IExperienceItem } from 'src/stores/experience.interface';
 import styled from '@emotion/styled';
 import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
+import { dateParser } from 'src/helpers/utils';
 
 const SectionHolder = styled.div`
   color: black;
@@ -25,7 +26,8 @@ export default function Experience({ work }: { work: IExperienceItem[] }) {
           <div className="experience-header flex justify-between items-center">
             <div className="experience-title font-bold text-md">{workItem.name}</div>
             <div className="experience-date  text-xs font-bold">
-              {workItem.startDate} - {workItem.endDate ? workItem.endDate : `Present`}
+              {dateParser(workItem.startDate)} -{' '}
+              {workItem.isWorkingHere ? 'Present' : dateParser(workItem.endDate)}
             </div>
           </div>
           <HTMLRenderer htmlString={workItem.summary}></HTMLRenderer>

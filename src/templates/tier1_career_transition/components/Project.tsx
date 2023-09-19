@@ -3,6 +3,7 @@ import Color from 'color';
 import { IProjectItem } from 'src/stores/projects.interface';
 import styled from '@emotion/styled';
 import { HTMLRenderer } from 'src/helpers/common/components/HTMLRenderer';
+import { dateParser } from 'src/helpers/utils';
 
 const SectionHolder = styled.div`
   color: black;
@@ -14,28 +15,6 @@ const SectionHolder = styled.div`
 `;
 
 export default function Project({ projects }: { projects: IProjectItem[] }) {
-  function formatDate(inputDateStr) {
-    const inputDate = new Date(inputDateStr);
-    const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-
-    const month = months[inputDate.getMonth()];
-    const year = inputDate.getFullYear();
-
-    return `${month} ${year}`;
-  }
   return (
     <SectionHolder className="project-container">
       {projects.map((project) => (
@@ -54,7 +33,7 @@ export default function Project({ projects }: { projects: IProjectItem[] }) {
               >
                 Demo Link
               </a>
-              <div className="project-date  text-xs font-bold">{formatDate(project.timeline)}</div>
+              <div className="project-date  text-xs font-bold">{dateParser(project.timeline)}</div>
             </div>
           </div>
           <div className="text-[13px]">{project.intro}</div>
