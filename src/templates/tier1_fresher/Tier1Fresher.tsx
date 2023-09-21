@@ -51,6 +51,7 @@ export default function ProfessionalTemplate() {
   const miniProjects = resumeData.miniProjects;
   const skills = resumeData.skills;
   const involvements = resumeData.activities.involvements;
+  console.log(involvements.innerText);
   const achievements = resumeData.activities.achievements;
   const work = resumeData.work;
 
@@ -63,7 +64,7 @@ export default function ProfessionalTemplate() {
       if (ele.id) {
         if (!pageBreakAdded) {
           //calculate current section's height relative to resume-layout container.
-          console.log(ele.id);
+
           const elementRect = ele?.getBoundingClientRect();
           const elementHeightRelative = elementRect?.bottom - containerRect?.top;
 
@@ -146,13 +147,13 @@ export default function ProfessionalTemplate() {
           </Section>
         )}
 
-        {(involvements !== '' || involvements !== '<p><br></p>') && (
+        {involvements !== '' && involvements !== '<p><br></p>' && (
           <Section id="clubs-activities" title="Clubs & Activities" titleClassname="text-lg">
             <Activities activities={involvements} />
           </Section>
         )}
 
-        {achievements !== '' && (
+        {achievements !== '' && achievements !== '<p><br></p>' && (
           <Section id="achievements" title="Achievements" titleClassname="text-lg">
             <Activities activities={achievements} />
           </Section>

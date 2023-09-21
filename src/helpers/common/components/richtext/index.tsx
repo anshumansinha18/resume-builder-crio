@@ -34,6 +34,9 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
           defaultActionOnPaste: 'insert_only_text',
           maxHeight: 200,
           link: LinkPlugin,
+          cleanHTML: {
+            fillEmptyParagraph: false,
+          },
         });
         editor.value = value;
         editorRef.current = editor;

@@ -132,13 +132,13 @@ export default function ProfessionalTemplate() {
         {/* <Section title="Experience" titleClassname="text-lg">
           <Experience work={resumeData.work} />
         </Section> */}
-        {involvements !== '' && (
+        {involvements !== '' && involvements !== '<p><br></p>' && (
           <Section id="clubs-activities" title="Clubs & Activities" titleClassname="text-lg">
             <Activities activities={involvements} />
           </Section>
         )}
 
-        {achievements !== '' && (
+        {achievements !== '' && achievements !== '<p><br></p>' && (
           <Section id="achievements" title="Achievements" titleClassname="text-lg">
             <Activities activities={achievements} />
           </Section>
