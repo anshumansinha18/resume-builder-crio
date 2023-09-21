@@ -7,7 +7,7 @@ export default function AboutMe({
 }: // profileImage,
 {
   summary: string;
-  profileImage: string;
+  // profileImage: string;
 }) {
   return (
     <div className="text-[1em] mt-[-13px]">

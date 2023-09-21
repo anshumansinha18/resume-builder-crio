@@ -118,31 +118,42 @@ export default function ProfessionalTemplate() {
           <Skill skills={skills} />
         </Section>
 
-        <Section title="Profile Summary" titleClassname="text-lg">
-          <AboutMe summary={resumeData.basics.summary} />
-        </Section>
-        <Section id="projects" title="Projects" titleClassname="text-lg">
-          <Project projects={resumeData.projects} />
-        </Section>
+        {resumeData.basics.summary !== '' && (
+          <Section title="Profile Summary" titleClassname="text-lg">
+            <AboutMe summary={resumeData.basics.summary} />
+          </Section>
+        )}
 
-        <Section id="mini-projects " title="Mini Projects" titleClassname="text-lg">
-          <MiniProject miniProjects={miniProjects} />
-        </Section>
+        {resumeData.projects.length !== 0 && (
+          <Section id="projects" title="Projects" titleClassname="text-lg">
+            <Project projects={resumeData.projects} />
+          </Section>
+        )}
 
-        <Section id="experience" title="Experience" titleClassname="text-lg">
-          <Experience work={resumeData.work} />
-        </Section>
+        {miniProjects.length !== 0 && (
+          <Section id="mini-projects " title="Mini Projects" titleClassname="text-lg">
+            <MiniProject miniProjects={miniProjects} />
+          </Section>
+        )}
 
-        <Section id="education" title="Education" titleClassname="text-lg">
-          <Education education={resumeData.education} />
-        </Section>
+        {resumeData.work.length !== 0 && (
+          <Section id="experience" title="Experience" titleClassname="text-lg">
+            <Experience work={resumeData.work} />
+          </Section>
+        )}
+
+        {resumeData.education.length !== 0 && (
+          <Section id="education" title="Education" titleClassname="text-lg">
+            <Education education={resumeData.education} />
+          </Section>
+        )}
 
         {/* <Section title="Clubs & Activities" titleClassname="text-lg">
           <Activities activities={involvements} />
         </Section> */}
 
         {achievements !== '' && (
-          <Section title="Achievements" titleClassname="text-lg">
+          <Section id="achievements" title="Achievements" titleClassname="text-lg">
             <Activities activities={achievements} />
           </Section>
         )}

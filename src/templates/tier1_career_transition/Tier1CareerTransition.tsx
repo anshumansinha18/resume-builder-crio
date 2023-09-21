@@ -111,21 +111,30 @@ export default function ProfessionalTemplate() {
         <Section title="Skills" titleClassname="text-lg">
           <Skill skills={skills} />
         </Section>
-        <Section id="education" title="Education" titleClassname="text-lg">
-          <Education education={resumeData.education} />
-        </Section>
+        {resumeData.education.length !== 0 && (
+          <Section id="education" title="Education" titleClassname="text-lg">
+            <Education education={resumeData.education} />
+          </Section>
+        )}
+
         {resumeData.projects.length !== 0 && (
           <Section id="projects" title="Projects" titleClassname="text-lg">
             <Project projects={resumeData.projects} />
           </Section>
         )}
-        <Section id="mini-projects " title="Mini Projects" titleClassname="text-lg">
-          <MiniProject miniProjects={miniProjects} />
-        </Section>
 
-        <Section id="experience" title="Experience" titleClassname="text-lg">
-          <Experience work={resumeData.work} />
-        </Section>
+        {resumeData.miniProjects.length !== 0 && (
+          <Section id="mini-projects " title="Mini Projects" titleClassname="text-lg">
+            <MiniProject miniProjects={miniProjects} />
+          </Section>
+        )}
+
+        {resumeData.work.length !== 0 && (
+          <Section id="experience" title="Experience" titleClassname="text-lg">
+            <Experience work={resumeData.work} />
+          </Section>
+        )}
+
         {/* <Section title="Clubs & Activities" titleClassname="text-lg">
           <Activities activities={involvements} />
         </Section> */}

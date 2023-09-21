@@ -113,9 +113,11 @@ export default function ProfessionalTemplate() {
           <Skill skills={skills} />
         </Section>
 
-        <Section title="Education" titleClassname="text-lg">
-          <Education education={resumeData.education} />
-        </Section>
+        {resumeData.education.length !== 0 && (
+          <Section title="Education" titleClassname="text-lg">
+            <Education education={resumeData.education} />
+          </Section>
+        )}
 
         {resumeData.work.length !== 0 && (
           <Section title="Experience" titleClassname="text-lg">

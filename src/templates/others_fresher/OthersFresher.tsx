@@ -117,13 +117,17 @@ export default function ProfessionalTemplate() {
           </Section>
         )}
 
-        <Section id="projects" title="Projects" titleClassname="text-lg">
-          <Project projects={resumeData.projects} />
-        </Section>
+        {resumeData.projects.length !== 0 && (
+          <Section id="projects" title="Projects" titleClassname="text-lg">
+            <Project projects={resumeData.projects} />
+          </Section>
+        )}
 
-        <Section id="education" title="Education" titleClassname="text-lg">
-          <Education education={resumeData.education} />
-        </Section>
+        {resumeData.education.length !== 0 && (
+          <Section id="education" title="Education" titleClassname="text-lg">
+            <Education education={resumeData.education} />
+          </Section>
+        )}
 
         {/* <Section title="Experience" titleClassname="text-lg">
           <Experience work={resumeData.work} />
