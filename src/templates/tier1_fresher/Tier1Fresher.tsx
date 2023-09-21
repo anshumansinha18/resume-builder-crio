@@ -146,7 +146,7 @@ export default function ProfessionalTemplate() {
           </Section>
         )}
 
-        {involvements !== '' && (
+        {(involvements !== '' || involvements !== '<p><br></p>') && (
           <Section id="clubs-activities" title="Clubs & Activities" titleClassname="text-lg">
             <Activities activities={involvements} />
           </Section>
