@@ -21,3 +21,14 @@ export interface ITemplateContent {
   thumbnail: string;
   component: React.ComponentType;
 }
+
+export interface IProjectContent {
+  id: string;
+  name: string;
+  languages: string;
+  demoLink: string;
+  timeline: string;
+  intro: string;
+  description: string;
+  track: string;
+}

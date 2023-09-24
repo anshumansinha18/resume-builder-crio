@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useProjects } from 'src/stores/projects';
 import AddProject from './components/AddProject';
 import ProjectComponent from './components/Project';
-
+import ProjectOptions from './components/ProjectOptions';
 import MoveEditSection from 'src/helpers/common/components/MoveEditSectionContainer';
 
 const ProjectsLayout = () => {
@@ -13,10 +13,10 @@ const ProjectsLayout = () => {
 
   const [expanded, setExpanded] = useState<string | false>(false);
 
-  useEffect(() => {
-    setExpanded(allProjects[0]?.id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   setExpanded(allProjects[0]?.id);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const handleChange = (panel: string, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
@@ -39,6 +39,8 @@ const ProjectsLayout = () => {
           <ProjectComponent projectInfo={project} currentIndex={index} />
         </MoveEditSection>
       ))}
+
+      <ProjectOptions />
       <AddProject handleChange={handleChange} isEmpty={allProjects.length === 0} />
     </div>
   );

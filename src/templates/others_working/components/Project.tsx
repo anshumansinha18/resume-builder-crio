@@ -24,7 +24,7 @@ export default function Project({ projects }: { projects: IProjectItem[] }) {
               {project.name} |{' '}
               <span className="text-[14px] font-normal italic">{project.languages}</span>
             </div>
-            <div className="flex gap-2 text-xs items-center">
+            <div className="flex gap-2 text-xs items-center min-w-[115.65px]">
               <a
                 href={project.demoLink}
                 rel="noopener noreferrer"
