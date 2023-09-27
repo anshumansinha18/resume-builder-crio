@@ -3,6 +3,15 @@ import { TextField } from '@mui/material';
 import SliderValue from '../atoms/SliderValue';
 import { OutlinedButton, TextButton } from 'src/helpers/common/atoms/Buttons';
 import { ISkillItem } from 'src/stores/skill.interface';
+import {
+  useDatabases,
+  useFrameworks,
+  useLanguages,
+  useLibraries,
+  usePractices,
+  useTechnologies,
+  useTools,
+} from 'src/stores/skills';
 
 const AddSkill = ({
   title,
@@ -28,7 +37,24 @@ const AddSkill = ({
   };
 
   const addAll = () => {
-    skillList[title.toLowerCase()].map((skill) => addHandler({ name: skill, level: 0 }));
+    skillList[title.toLowerCase()].map((skill: string) => {
+      let addedSkill: string[] | void = [];
+      if (title.toLowerCase() === 'languages') {
+        addedSkill = useLanguages.getState().get();
+      } else if (title.toLowerCase() === 'frameworks') {
+        addedSkill = useFrameworks.getState().get();
+      } else if (title.toLowerCase() === 'technologies') {
+        addedSkill = useTechnologies.getState().get();
+      } else if (title.toLowerCase() === 'databases') {
+        addedSkill = useDatabases.getState().get();
+      } else if (title.toLowerCase() === 'os') {
+        addedSkill = usePractices.getState().get();
+      } else if (title.toLowerCase() === 'tools') {
+        addedSkill = useTools.getState().get();
+      }
+      const foundSkill = addedSkill.find((obj) => obj.name.toLowerCase() === skill.toLowerCase());
+      if (!foundSkill) addHandler({ name: skill, level: 0 });
+    });
   };
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);

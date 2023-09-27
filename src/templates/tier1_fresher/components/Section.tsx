@@ -101,7 +101,6 @@ export function Section({
     const element = document.getElementById('height-check-2');
     const rect = element?.getBoundingClientRect();
     const yCoordinate = rect.top + window.scrollY;
-    console.log(yCoordinate);
   }, []);
   return (
     <SectionHolder id={id}>

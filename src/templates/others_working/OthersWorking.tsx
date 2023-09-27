@@ -64,7 +64,7 @@ export default function ProfessionalTemplate() {
       if (ele.id) {
         if (!pageBreakAdded) {
           //calculate current section's height relative to resume-layout container.
-          console.log(ele.id);
+      
           const elementRect = ele?.getBoundingClientRect();
           const elementHeightRelative = elementRect?.bottom - containerRect?.top;
 
