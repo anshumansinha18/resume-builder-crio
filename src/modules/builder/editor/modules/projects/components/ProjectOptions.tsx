@@ -57,7 +57,7 @@ const ProjectOptions: React.FC = () => {
       <SnackbarProvider />
       <SectionHolder>
         <span className="text-md font-semibold">Tracks:</span>
-        {trackOptions.map((track, index) => (
+        {trackOptions.map((track) => (
           <button
             key={track}
             className={`track-btn ${selectedTrack === track ? 'selected' : ''}`}
