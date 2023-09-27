@@ -159,7 +159,7 @@
   ],
   "projects": [
     {
-      "id": "1",
+      "id": "qeats",
       "name": "QEats",
       "languages": "Java, Interfaces, HTTP, Spring Boot, Spring Data, REST APIs, MVCs, Mockito",
       "demoLink": "https://github.com/apoorvb12/qeats",
@@ -168,7 +168,7 @@
       "description": "<ul><li>Built 7+ REST APIs for a food-ordering app</li><li>Implemented MVCs framework to accept API requests based on user locations and return a list of restaurants</li><li>Used Redis Cache to address the challenge of retrieving repeated data from MongoDB</li><li>Used MongoDB queries to enable users to search for restaurants using attributes like name, cuisine and dish</li><li>Added search support to map a list of restaurants to specific user requirements</li><li>Boosted the app’s performance by using multithreading to run parallel search queries</li></ul>"
     },
     {
-      "id": "2",
+      "id": "qmoney",
       "name": "QMoney",
       "languages": "Java, Jackson, Factory Design Pattern, JUnit, Mockito, REST",
       "demoLink": "https://github.com/apoorvb12/qeats",

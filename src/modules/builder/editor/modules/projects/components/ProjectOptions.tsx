@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { projectOptions, trackOptions } from 'src/helpers/constants/project-data';
 import { useProjects } from 'src/stores/projects';
 import styled from '@emotion/styled';
+import { IProjectItem } from 'src/stores/projects.interface';
+import { SnackbarProvider, enqueueSnackbar } from 'notistack';
 
 const SectionHolder = styled.div`
   display: flex;
@@ -43,8 +45,16 @@ const ProjectOptions: React.FC = () => {
     setSelectedTrack((prevTrack) => (prevTrack === selectedTrack ? '' : selectedTrack));
   };
 
+  const handleAddProjectOption = (project) => {
+    const addedProjects = useProjects.getState().projects;
+    const foundProject = addedProjects.find((proj) => proj.id === project.id);
+    if (!foundProject) addProjectToStore(project);
+    else enqueueSnackbar('Project Already Added!', { variant: 'warning' });
+  };
+
   return (
     <div>
+      <SnackbarProvider />
       <SectionHolder>
         <span className="text-md font-semibold">Tracks:</span>
         {trackOptions.map((track, index) => (
@@ -68,7 +78,7 @@ const ProjectOptions: React.FC = () => {
                 transition: 'opacity 0.2s ease',
               }}
               className="bg-transparent hover:bg-gray-500 text-gray-900 font-normal text-sm hover:text-white py-0 px-2 mb-1 mr-2 border border-blue-400 hover:border-transparent rounded"
-              onClick={() => addProjectToStore(project)}
+              onClick={() => handleAddProjectOption(project)}
             >
               {project.name}
             </button>
