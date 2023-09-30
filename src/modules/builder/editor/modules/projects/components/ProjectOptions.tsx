@@ -4,6 +4,7 @@ import { useProjects } from 'src/stores/projects';
 import styled from '@emotion/styled';
 import { IProjectItem } from 'src/stores/projects.interface';
 import { SnackbarProvider, enqueueSnackbar } from 'notistack';
+import useTrackStore from 'src/stores/track';
 
 const SectionHolder = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ const SectionHolder = styled.div`
 const ProjectOptions: React.FC = () => {
   const addProjectToStore = useProjects((state) => state.add);
   const [visibleButtons, setVisibleButtons] = useState<number>(0);
-  const [selectedTrack, setSelectedTrack] = useState<string>('');
+  const [selectedTrack, setSelectedTrack] = useState<string>(useTrackStore.getState().track);
   const filteredProjects = projectOptions.filter((project) => project.track === selectedTrack);
 
   useEffect(() => {
@@ -41,8 +42,14 @@ const ProjectOptions: React.FC = () => {
     return () => clearTimeout(timer);
   }, [visibleButtons, selectedTrack, filteredProjects]);
 
-  const handleTrackSelection = (selectedTrack: string) => {
-    setSelectedTrack((prevTrack) => (prevTrack === selectedTrack ? '' : selectedTrack));
+  const handleTrackSelection = (e, selectedTrack: string) => {
+    const ans = confirm(
+      `You have selected ${useTrackStore
+        .getState()
+        .track.toUpperCase()} in the Skills Section. Are you sure you want to change the track?`
+    );
+
+    if (ans) setSelectedTrack((prevTrack) => (prevTrack === selectedTrack ? '' : selectedTrack));
   };
 
   const handleAddProjectOption = (project) => {
@@ -61,7 +68,7 @@ const ProjectOptions: React.FC = () => {
           <button
             key={track}
             className={`track-btn ${selectedTrack === track ? 'selected' : ''}`}
-            onClick={() => handleTrackSelection(track)}
+            onClick={(e) => handleTrackSelection(e, track)}
           >
             {track.toUpperCase()}
           </button>

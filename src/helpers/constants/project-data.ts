@@ -76,11 +76,11 @@ export const projectOptions: IProjectContent[]= [
     {
       "id": "qtrip",
       "name": "Qtrip",
-      "languages": "JavaScript, JQuery, HTML5, CSS3, Bootstrap, Wireframe, Dynamic webpage, DOM Manipulation, Netlify, Heroku",
+      "languages": "JavaScript, HTML5, CSS3, Bootstrap, Wireframe, Dynamic webpage, DOM Manipulation, Netlify, Render",
       "demoLink": "",
       "timeline": "2012-01-01",
       "intro": "",
-       "description":"",
+      "description":"<ul><li>A travel website made using HTML, CSS, Bootstrap, and JavaScript that can be used to browse different cities, and adventures and make reservations.</li><li>Improved UI/UX with multi-select filters, forms, image carousels, and conditional rendering of page elements.</li><li>Utilized localStorage to persist user preference at client-side and facilitated reservation form submission using fetch API.</li><li>Deployed the website using Netlify for Frontend and Render for Backend.</li></ul>",
        "track": "fdt",
     },
     {
@@ -90,7 +90,7 @@ export const projectOptions: IProjectContent[]= [
       "demoLink": "",
       "timeline": "2012-01-01",
       "intro": "",
-       "description":"",
+      "description":"",
        "track": "qa",
     },
     {
@@ -102,5 +102,15 @@ export const projectOptions: IProjectContent[]= [
       "intro": "",
        "description":"",
        "track": "qa",
+    },
+    {
+      "id": "qtripstatic",
+      "name": "Qtrip-Static",
+      "languages": "HTML, CSS, Developer Tools, Bootstrap, Responsive Design, Deployment using Netlify, VS Code Live Server",
+      "demoLink": "",
+      "timeline": "2012-01-01",
+      "intro": "",
+      "description":"<ul><li>Created 3 different web pages from wireframe layout using HTML and CSS.</li><li>Utilized Bootstrap extensively for responsive design, and creating components.</li><li>Deployed the website using Netlify.</li></ul>",
+      "track": "fdt",
     },
 ]

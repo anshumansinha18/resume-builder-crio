@@ -12,6 +12,7 @@ import EditSectionContainer from 'src/helpers/common/components/EditSectionConta
 import Skill from './components/Skill';
 import TrackOption from './atoms/TrackOption';
 import { useEffect } from 'react';
+import useTrackStore from 'src/stores/track';
 
 const fdtSkills = {
   languages: ['JavaScript', 'HTML', 'CSS'],
@@ -64,7 +65,7 @@ const SkillsLayout = () => {
     useTools(),
   ];
   console.log(skillState);
-  const [selectedTrack, setSelectedTrack] = useState('fdt');
+  const [selectedTrack, setSelectedTrack] = useState(useTrackStore.getState().track);
 
   const [expanded, setExpanded] = useState<string | false>('Languages');
 

@@ -265,9 +265,9 @@ const NavBarLayout = () => {
           <NavMenuItem caption="Colours" popoverChildren={<ThemeSelect />} />
         </NavBarMenu>
         <NavBarActions>
-          {/* <StyledButton variant="text" onClick={handleGlobalReset}>
+          <StyledButton variant="text" onClick={handleGlobalReset}>
             Reset Data
-          </StyledButton> */}
+          </StyledButton>
           <StyledButton variant="text" onClick={exportResumeData}>
             Export
           </StyledButton>
