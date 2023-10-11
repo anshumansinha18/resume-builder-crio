@@ -119,10 +119,10 @@ export function Section({
           } whitespace-nowrap overflow-hidden overflow-ellipsis section-heading`}
         >
           {title}
-          <span
+          {/* <span
             className="under-line"
             style={{ width: `calc(${headerWidth}px - ${spanWidth}px)` }}
-          ></span>
+          ></span> */}
         </span>
       </div>
 
