@@ -88,15 +88,15 @@ export default function ProfessionalTemplate() {
                   //handling edge case: If first sub-section of education/project is exceeding the threshold, then push entire section to next page.
                   if (relativeSubSectionHeight > 1051 && index > 0) {
                     pageBreakAdded = true;
-                    section.style.cssText = 'break-before: page; margin-top: 40px';
+                    section.style.cssText = 'break-before: page; margin-top: 80px';
                   } else if (relativeSubSectionHeight > 1051) {
                     pageBreakAdded = true;
-                    ele.style.cssText = 'break-before: page; margin-top: 40px';
+                    ele.style.cssText = 'break-before: page; margin-top: 80px';
                   }
                 }
               });
             } else {
-              ele.style.cssText = 'break-before: page; margin-top: 40px';
+              ele.style.cssText = 'break-before: page; margin-top: 80px';
               pageBreakAdded = true;
             }
           }

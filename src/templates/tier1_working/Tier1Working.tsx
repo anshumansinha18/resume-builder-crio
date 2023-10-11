@@ -89,7 +89,7 @@ export default function ProfessionalTemplate() {
                 }
               });
             } else {
-              ele.style.cssText = 'break-before: page; margin-top: 40px';
+              ele.style.cssText = 'break-before: page; margin-top: 80px';
               pageBreakAdded = true;
             }
           }
